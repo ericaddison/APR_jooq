@@ -1,6 +1,7 @@
 package jooq_7_steps;
 
 import static apt.jooq.employees.Tables.EMPLOYEES_;
+import static apt.jooq.employees.Tables.SALARIES;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -41,6 +42,16 @@ public class Jooq_Insert {
 						  EmployeesGender.M, 
 						  Date.valueOf("1969-12-28"), 
 						  Date.valueOf("1991-08-25"))
+				  .onDuplicateKeyIgnore()
+				  .execute();
+			
+			create.insertInto(SALARIES, SALARIES.EMP_NO,
+										SALARIES.SALARY,
+										SALARIES.FROM_DATE,
+										SALARIES.TO_DATE)
+				  .values(1, 1000000, 
+						  Date.valueOf("1991-08-25"),
+						  Date.valueOf("9999-12-31"))
 				  .onDuplicateKeyIgnore()
 				  .execute();
 
