@@ -36,14 +36,14 @@ public class Jooq_Join {
 			
 			// find the 10 highest (ever) earners in the company by gender
 			Result<?> highEarners = create
-								.select(empNo, gender, maxS)
-								.from(EMPLOYEES_)
-								.join(SALARIES)
-								.on(empNo.eq(SALARIES.EMP_NO))
-								.groupBy(empNo)
-								.orderBy(maxS.desc())
-								.limit(10)
-								.fetch();
+						.select(empNo, gender, maxS)
+						.from(EMPLOYEES_)
+						.join(SALARIES)
+						.on(empNo.eq(SALARIES.EMP_NO))
+						.groupBy(empNo)
+						.orderBy(maxS.desc())
+						.limit(10)
+						.fetch();
 			
 			System.out.println(highEarners);
 			
