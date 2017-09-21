@@ -30,6 +30,7 @@ public class Jooq_Create {
 			// create a new table called MILLENIALS
 			create.createTable("MILLENIALS").as(
 				       create.select(
+				    	 EMPLOYEES_.EMP_NO,
 				         EMPLOYEES_.FIRST_NAME,
 				         EMPLOYEES_.LAST_NAME,
 				         EMPLOYEES_.BIRTH_DATE)
