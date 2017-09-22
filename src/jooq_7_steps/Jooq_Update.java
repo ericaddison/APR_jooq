@@ -27,7 +27,7 @@ public class Jooq_Update {
         try (Connection conn = DriverManager.getConnection(url, userName, password)) {
             DSLContext create = DSL.using(conn, SQLDialect.MYSQL);
 
-            // update a par
+            // update a salary record
             create.update(SALARIES)
                   .set(SALARIES.SALARY, 2000000)
                   .where(SALARIES.EMP_NO.eq(1))
